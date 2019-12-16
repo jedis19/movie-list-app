@@ -21,6 +21,7 @@ export class MovieDetailsComponent implements OnInit {
     private alertifyService: AlertifyjsService,
     public activatedRoute: ActivatedRoute,
     public router: Router,
+    private movielistService:MovielistService
   ) {  }
 
   ngOnInit() {
@@ -33,11 +34,9 @@ export class MovieDetailsComponent implements OnInit {
       $('#js-flip-2 .card').toggleClass('flipped');
     });
 
-    //getting movie details from list component
-    this.activatedRoute.queryParams.subscribe(params => {
-      this.movie = JSON.parse(params.movie)
-    })
-
+   
+    //getting movie details
+   this.movie = JSON.parse(localStorage.getItem('movie'))
   }
 
 

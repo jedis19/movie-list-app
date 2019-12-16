@@ -4,6 +4,7 @@ import { movieDetails } from '../../models/movieDetails';
 import { MovielistService } from 'src/app/services/movielist.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
@@ -25,11 +26,17 @@ export class MovieListComponent implements OnInit {
   }
 
   send(currentMovie: movieDetails) {
-    this.route.navigate(['movie-details'], {
-      queryParams: {
-        movie: JSON.stringify(currentMovie)
-      }
-    });
+    
+    // this.route.navigate(['movie-details'], {
+    //   queryParams: {
+    //     movie: JSON.stringify(currentMovie)
+    //   }
+    // });
+    this.movieListService.getDetails(currentMovie)
+  
+    this.route.navigate(['movie-details'])
+    
+  
   }
 
 }
