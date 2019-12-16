@@ -1,0 +1,21 @@
+<div class="card" *ngFor="let item of movies">
+    <div class="img-container">
+        <img src="{{item.posterurl}}">
+    </div>
+    <div class="card-body">
+        <div  class="movie-name">
+                <p  [style.fontSize]="item.originalTitle.length > 7? '36px' : '56px'"  id="title">{{item.originalTitle | limitTo:32}}</p>
+        </div>
+        <div class="movie-content">
+                {{item.year}} - {{item.genres}} - {{item.duration}}
+        </div>
+        <div class="imdb">
+            <p>{{item.imdbRating}}</p>
+            <p  style="font-size: 24px;" class="text-muted">/10</p>
+        </div>
+        <div class="progress">
+                <progress style="width: 326px;margin:auto;" value="{{item.imdbRating}}" max="10"></progress>
+            </div>
+            <button (click)="send(item)" type="button">MOVIE DETAILS</button>
+    </div>
+</div>

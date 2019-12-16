@@ -1,0 +1,64 @@
+<div class="card">
+    <div class="img-container">
+        <img src="{{movie.posterurl}}">
+        <div id="flip-ico">
+                <div class="plusico" (click)="addToList()"  style="cursor:pointer;" *ngIf="isClicked==false"><img src="../../../assets/plusico.png" ></div>
+                <div class="plusico" *ngIf="isClicked==true" style="cursor:pointer; "  (click)="removeToList()" ><img src="../../../assets/minus.ico.png" ></div>
+        </div>
+       
+    </div>
+    
+    <div class="card-body">
+        <div class="firstline row">
+            <div class="col-sm-4">
+                <p [style.fontSize]="movie.originalTitle.length > 13? '18px' : '26px'" id="title"  >
+                    {{movie.originalTitle | limitTo:22}}</p>
+            </div>
+            <div class="col-sm-1,2">
+                <p [style.margin-top]="movie.originalTitle.length > 13? '3px' : '9px'" class="font-weight-bold imdb">
+                    {{movie.imdbRating}}</p>
+            </div>
+            <div class="col-sm-5">
+                <div class="progress">
+                    <progress style="width: 170px;margin-top: 8px;" value="{{movie.imdbRating}}" max="10"></progress>
+                    <!-- <mat-progress-bar color="warn" mode="determinate" value="{{item.imdbRating*10}}"></mat-progress-bar> -->
+                </div>
+            </div>
+        </div>
+        <p class="card-text" id="infomovie">{{movie.year}} - {{movie.genres}} - {{movie.duration}}</p>
+        <div class="content-movie">
+            <p class="card-text" *ngIf="isRead==false" [style.fontSize]="movie.storyline.length > 440? '14px' : '17px'">{{movie.storyline | limitTo:448}}
+                <a (click)="readMore()" *ngIf="movie.storyline.length>448 && isRead==false" style="cursor: pointer;"><p   class="readMore">Read More</p></a>
+            </p>
+            <p class="card-text"  *ngIf="isRead==true" [style.fontSize]="movie.storyline.length > 440? '14px' : '17px'">  {{movie.storyline}}
+            </p>
+           
+        </div>
+
+        <hr>
+
+        <div class="directornwriters row">
+            <div class="leftline col-md-3">
+                <p>Director: </p>
+                <p>Writers: </p>
+                <p>Stars: </p>
+            </div>
+            <div class="rightline col-md-7">
+                <p [style.fontSize]="movie.directors.length > 2 ? '13px' : '16px'">{{movie.directors}} </p>
+                <p [style.fontSize]="movie.writers.length > 2 ? '13px' : '16px'" >{{movie.writers }}</p>
+                <p [style.fontSize]="movie.actors.length > 2 ? '13px' : '16px'" >{{movie.actors }}  </p>
+            </div>
+        </div>
+
+                <div id="js-flip-2" class="flip">
+                        <div class="card">
+                            <div  (click)="addToList(movie.imdbRating,movie.originalTitle,movie.posterurl)" class="face front">+ ADD TO WATCH LİST</div>
+                            <div  (click)="removeToList()" class="face back">-REMOVE FROM LIST</div>
+                        </div>
+                    </div>
+    </div>
+    
+   
+
+</div>
+
