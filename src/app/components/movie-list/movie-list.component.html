@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <div  class="movie-name">
-                <p  [style.fontSize]="item.originalTitle.length > 7? '36px' : '56px'"  id="title">{{item.originalTitle | limitTo:32}}</p>
+                <p  [style.fontSize]="item.originalTitle.length > 7? '36px' : '56px'"  id="title">{{item.originalTitle | limitTo:'32'}}</p>
         </div>
         <div class="movie-content">
                 {{item.year}} - {{item.genres}} - {{item.duration}}

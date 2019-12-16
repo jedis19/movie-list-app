@@ -41,7 +41,7 @@ export class MovieDetailsComponent implements OnInit {
   }
 
 
-  addToList(imdbRating,originalTitle,posterUrl) {
+  addToList() {
     this.isClicked = true;
     this.alertifyService.success('The movie has been added to your watch list!')
   }

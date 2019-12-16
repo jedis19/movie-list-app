@@ -12,7 +12,7 @@
         <div class="firstline row">
             <div class="col-sm-4">
                 <p [style.fontSize]="movie.originalTitle.length > 13? '18px' : '26px'" id="title"  >
-                    {{movie.originalTitle | limitTo:22}}</p>
+                    {{movie.originalTitle | limitTo:'22'}}</p>
             </div>
             <div class="col-sm-1,2">
                 <p [style.margin-top]="movie.originalTitle.length > 13? '3px' : '9px'" class="font-weight-bold imdb">
@@ -27,7 +27,7 @@
         </div>
         <p class="card-text" id="infomovie">{{movie.year}} - {{movie.genres}} - {{movie.duration}}</p>
         <div class="content-movie">
-            <p class="card-text" *ngIf="isRead==false" [style.fontSize]="movie.storyline.length > 440? '14px' : '17px'">{{movie.storyline | limitTo:448}}
+            <p class="card-text" *ngIf="isRead==false" [style.fontSize]="movie.storyline.length > 440? '14px' : '17px'">{{movie.storyline | limitTo:'448'}}
                 <a (click)="readMore()" *ngIf="movie.storyline.length>448 && isRead==false" style="cursor: pointer;"><p   class="readMore">Read More</p></a>
             </p>
             <p class="card-text"  *ngIf="isRead==true" [style.fontSize]="movie.storyline.length > 440? '14px' : '17px'">  {{movie.storyline}}
@@ -52,7 +52,7 @@
 
                 <div id="js-flip-2" class="flip">
                         <div class="card">
-                            <div  (click)="addToList(movie.imdbRating,movie.originalTitle,movie.posterurl)" class="face front">+ ADD TO WATCH LİST</div>
+                            <div  (click)="addToList()" class="face front">+ ADD TO WATCH LİST</div>
                             <div  (click)="removeToList()" class="face back">-REMOVE FROM LIST</div>
                         </div>
                     </div>
